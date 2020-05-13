@@ -1,6 +1,7 @@
-<div [ngSwitch]="status">
-    <div *ngSwitchCase="'ON'" class="badge badge-pill badge-success">{{status}}</div>
-    <div *ngSwitchCase="'OFF'" class="badge badge-pill badge-danger">{{status}}</div>
-    <div *ngSwitchCase="'IDDLE'" class="badge badge-pill badge-primary">{{status}}</div>
+<div [ngSwitch]="status.state">
+    <div *ngSwitchCase="0" class="badge badge-pill badge-success">IDDLE</div>
+    <div *ngSwitchCase="1" class="badge badge-pill badge-danger">ON</div>
+    <div *ngSwitchCase="2" class="badge badge-pill badge-primary">OFF</div>
     <div *ngSwitchDefault class="badge badge-pill badge-secondary">N/A</div>
 </div>
+

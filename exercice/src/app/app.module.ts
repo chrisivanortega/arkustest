@@ -7,6 +7,9 @@ import { OpenerComponent } from './opener/opener.component';
 import { NavComponent } from './nav/nav.component';
 import { StatusComponent } from './status/status.component';
 import { CallerService } from './caller.service';
+import {HttpClientModule } from '@angular/common/http'
+
+
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { CallerService } from './caller.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    
   ],
   providers: [CallerService],
   bootstrap: [AppComponent]

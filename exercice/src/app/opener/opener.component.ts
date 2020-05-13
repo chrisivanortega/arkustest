@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CallerService } from '../caller.service';
 
+
 @Component({
   selector: 'app-opener',
   templateUrl: './opener.component.html',
@@ -9,12 +10,23 @@ import { CallerService } from '../caller.service';
 export class OpenerComponent implements OnInit {
 
 
-  public status = null
+  public status = {state:0,gpio:17};
 
   constructor( private _CallerService: CallerService) { }
 
   ngOnInit(): void {
-    this.status = this._CallerService.getStatus()
+    setInterval(() => {
+      this._CallerService.getStatus()
+      .subscribe(data => this.status = data);
+    }, 500);
   }
 
+  toggleDoor(){
+    
+    this._CallerService.toggleStatus()
+    .subscribe(data => this.status = data);
+
+    console.log(this.status)
+  }
+  
 }

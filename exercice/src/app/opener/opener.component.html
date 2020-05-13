@@ -1,9 +1,10 @@
-<button class="btn btn-xl btn-outline-dark btn-circle btn-xl "> 
-        <div [ngSwitch]="status">
-                <div *ngSwitchCase="'ON'" class="text-success">{{status}}</div>
-                <div *ngSwitchCase="'OFF'" class="text-danger">{{status}}</div>
-                <div *ngSwitchCase="'IDDLE'" class="text-primary">{{status}}</div>
+<button class="btn btn-xl btn-outline-dark btn-circle btn-xl" (click)="toggleDoor()"> 
+        <div [ngSwitch]="status.state">
+                <div *ngSwitchCase="0" class="text-success">IDDLE</div>
+                <div *ngSwitchCase="1" class="text-danger">ON</div>
+                <div *ngSwitchCase="2" class="text-primary">OFF</div>
                 <div *ngSwitchDefault class="text-secondary">N/A</div>
             </div>    
 
 </button>
+

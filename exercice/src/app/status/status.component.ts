@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CallerService } from '../caller.service';
 
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-status',
   templateUrl: './status.component.html',
@@ -9,15 +11,15 @@ import { CallerService } from '../caller.service';
 export class StatusComponent implements OnInit {
 
 
-
-  public status = null
-
+  public status = {state:0,gpio:17};
 
   constructor( private _CallerService: CallerService) { }
 
-  ngOnInit(): void {
-    
-    this.status = this._CallerService.getStatus()
+  ngOnInit(): void { 
+    setInterval(() => {
+      this._CallerService.getStatus()
+      .subscribe(data => this.status = data);
+    }, 500);
   }
 
 }

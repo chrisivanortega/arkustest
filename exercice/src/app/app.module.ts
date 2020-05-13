@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { OpenerComponent } from './opener/opener.component';
 import { NavComponent } from './nav/nav.component';
 import { StatusComponent } from './status/status.component';
+import { CallerService } from './caller.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { StatusComponent } from './status/status.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CallerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

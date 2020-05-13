@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CallerService } from '../caller.service';
 
 @Component({
   selector: 'app-status',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusComponent implements OnInit {
 
-  constructor() { }
+
+
+  public status = null
+
+
+  constructor( private _CallerService: CallerService) { }
 
   ngOnInit(): void {
+    
+    this.status = this._CallerService.getStatus()
   }
 
 }

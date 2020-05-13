@@ -14,6 +14,8 @@ export class OpenerComponent implements OnInit {
 
   constructor( private _CallerService: CallerService) { }
 
+  
+
   ngOnInit(): void {
     setInterval(() => {
       this._CallerService.getStatus()
@@ -21,6 +23,8 @@ export class OpenerComponent implements OnInit {
     }, 500);
   }
 
+
+  
   toggleDoor(){
     
     this._CallerService.toggleStatus()

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from './post';
 import { Observable } from 'rxjs';
-
+import {User } from "./User"
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +10,7 @@ export class CallerService {
 
   constructor(private _http: HttpClient) { }
 
-  springboot = 'http://192.168.100.150:8080'
+  springboot = 'http://localhost:8080'
 
   getUsers() {
     /* calling the api to get users */    
@@ -18,15 +18,26 @@ export class CallerService {
    
   } 
 
-  addUser() {
+  addUser(body:any) {
     /* calling the api to get users */    
-   return this._http.get<any[]>(this.springboot + '/User');    
+   return this._http.post<any[]>(this.springboot + '/User',body);    
    
   }   
 
-  getUserById() {
+  getUserById(id:string) {
     /* calling the api to get users */    
-   return this._http.get<any[]>(this.springboot + '/User');    
+   return this._http.get<User>(this.springboot + '/User/'+id);    
+   
+  }   
+
+  updateUser(body:any){
+    return this._http.put<any[]>(this.springboot + '/User/'+body.id,body);    
+
+  }
+
+  delete(id: string) {
+    /* calling the api to get users */    
+   return this._http.delete<any[]>(this.springboot + '/User/'+id);    
    
   }   
 

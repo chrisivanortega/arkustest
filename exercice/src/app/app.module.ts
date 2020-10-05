@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { NavComponent } from './nav/nav.component';
-import { StatusComponent } from './status/status.component';
+import {  ReactiveFormsModule } from '@angular/forms';
+
 
 import { CallerService } from './caller.service';
 import { HttpClientModule } from '@angular/common/http'
@@ -15,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { ItijuanaComponent } from './itijuana/itijuana.component';
 import { NewuserComponent } from './newuser/newuser.component';
+import { UserComponent } from './user/user.component';
 
 
 @NgModule({
@@ -22,17 +24,19 @@ import { NewuserComponent } from './newuser/newuser.component';
     AppComponent,
     
     NavComponent,
-    StatusComponent,
+    
         
     HomeComponent,
     UsersComponent,
     ItijuanaComponent,
-    NewuserComponent
+    NewuserComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       {
         path:'',
@@ -47,7 +51,13 @@ import { NewuserComponent } from './newuser/newuser.component';
       {
         path:'newuser',
         component:NewuserComponent
-      }                 
+      }  
+,
+      
+      {
+        path:'user/:id',
+        component:UserComponent
+      }                       
     ])
     
   ],

@@ -1,0 +1,24 @@
+
+{{user}}
+<form [formGroup]="userF" (submit)="onSubmiter()" >
+    <div class="form-group">
+        <label for="exampleInputEmail1">Name</label>
+        <input   type="text" class="form-control"  formControlName="firstName"  >
+        
+
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputEmail1">Last Name </label>
+        <input  type="text" class="form-control"  formControlName="lastName"  >
+        
+      </div>      
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input  type="email" class="form-control" formControlName="email"  >
+      
+    </div>
+
+    <button class="btn btn-primary btn-sm" >Save</button>
+  </form>
